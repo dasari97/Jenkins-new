@@ -7,6 +7,11 @@ pipeline {
                 sh 'echo Hello World'
             }
         }
+        stage ('Two') {
+            steps {
+                sh ' echo How are you ?'
+            }
+        }
     }
     
 }
