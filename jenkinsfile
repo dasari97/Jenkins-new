@@ -1,20 +1,25 @@
 pipeline {
-  agent any
-    stages {
-        
-    parallel {
-        stage ('One') {
-            steps {
-                sh 'echo Hello World'
-            }
-        }
-        stage ('Two') {
-            steps {
-                sh ' echo How are you ?'
-            }
-        }
-     }
-        
-    }
-    
+  agent {
+      node {
+          label 'WORKSTATION'
+      }
+  }
+  stages {
+      stage ('1') {
+          steps {
+              sh 'echo Hello World'
+          }
+      }
+      stage ("2") {
+          agent {
+              node {
+                  label 'JAVA'
+              }
+          }
+          steps {
+              sh 'echo Hy'
+          }
+          
+      }
+  }
 }
