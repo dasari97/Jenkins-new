@@ -21,7 +21,7 @@ pipeline {
           }
           steps {
               sh 'echo Hy'
-              sh 'echo $URL'
+              sh 'echo ${URL}'
           }
           
       }
