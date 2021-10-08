@@ -2,6 +2,7 @@ pipeline {
   agent any
     stages {
         
+    parallel {
         stage ('One') {
             steps {
                 sh 'echo Hello World'
@@ -12,6 +13,8 @@ pipeline {
                 sh ' echo How are you ?'
             }
         }
+     }
+        
     }
     
 }
