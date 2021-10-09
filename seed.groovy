@@ -18,7 +18,7 @@ pipelineJob('CI-Pipelines/frontend') {
           }
         }
       }
-      'scriptPath'('jenkinsfile')
+      'scriptPath'('Jenkinsfile')
       'lightweight'(true)
     }
   }
