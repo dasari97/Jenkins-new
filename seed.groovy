@@ -3,7 +3,7 @@ folder('CI-Pipelines') {
   description('CI-Pipelines')
 }
 
-def component = ["frontend", "catalogue", "cart", "shipping", "payment"]
+def component = ["frontend", "catalogue", "cart", "shipping", "payment", "user"]
 
 def count = (component.size() -1)
 
