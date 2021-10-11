@@ -1,29 +1,4 @@
-pipeline {
-  agent {
-      node {
-          label 'NODEJS'
-      }
-  }
-  environment {
-      link = "google.com"
-  }
-  stages {
-      stage ('1') {
-          steps {
-              sh 'echo Hello World'
-          }
-      }
-      stage ("2") {
-          agent {
-              node {
-                  label 'JAVA'
-              }
-          }
-          steps {
-              sh 'echo Hy'
-              sh 'echo ${link}'
-          }
-          
-      }
-  }
-}
+@Library('roboshop') -
+
+log.info 'Starting'
+log.warning 'Nothing to do!'
