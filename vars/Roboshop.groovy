@@ -3,7 +3,7 @@ def call (String Agent) {
 
   agent {
     node {
-      label "Agent"
+      label "agent"
     }
   }
 
