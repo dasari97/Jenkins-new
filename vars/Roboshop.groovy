@@ -9,7 +9,7 @@ def call (String Agent) {
 
   stages {
 
-    stage('Compiling the code') {
+    stage('Compiling code') {
       steps {
         echo 'Code compilation done'
       }
