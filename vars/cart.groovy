@@ -11,13 +11,13 @@ def call (String COMPONENT) {
   }
   stages {
 
-    stage('Checking Code Quality') {
+    stage('Check Code Quality') {
       steps { 
         sh """ sonar-scanner -Dsonar.projectKey=${COMPONENT} -Dsonar.sources=. -Dsonar.host.url=http://172.31.15.90:9000 -Dsonar.login=${Sonar_Token} """
       }
     }
 
-    stage('Checking for Lints ') {
+    stage('Lint Checks') {
       steps {
         echo 'Checking Lint Checks'
       }
@@ -29,7 +29,7 @@ def call (String COMPONENT) {
       }
     }
 
-    stage('Preparing Artifact') {
+    stage('Prepare Artifact') {
       steps {
         sh """
           cd static
@@ -38,7 +38,7 @@ def call (String COMPONENT) {
       }
     }
 
-    stage('Publishing Artifacts') {
+    stage('Publish Artifacts') {
       steps {
         echo 'Publish Artifacts'
       }
