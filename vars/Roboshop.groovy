@@ -50,6 +50,11 @@ def call (String Agent , String COMPONENT) {
 
   }
 
+  post {
+    always {
+      cleanWs()
+    }
+  }
 }
 
 
