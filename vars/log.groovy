@@ -1,7 +1,7 @@
-def info(messag1e) {
-    echo "INFO: ${message}"
+def info(message1) {
+    echo "INFO: ${message1}"
 }
 
-def warning(messag2e) {
-    echo "WARNING: ${message}"
+def warning(message2) {
+    echo "WARNING: ${message2}"
 }
