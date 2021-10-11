@@ -37,7 +37,7 @@ def call (String Agent , String COMPONENT) {
       steps {
         sh """
           cd static
-          zip -r ${COMPONENT}}.zip * 
+          zip -r ${COMPONENT}.zip * 
         """
       }
     }
