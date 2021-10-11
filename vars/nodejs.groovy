@@ -3,22 +3,11 @@ def call (String COMPONENT) {
 
   agent {
     node {
-      label "${Agent}"
+      label "NODEJS"
     }
   }
 
   stages {
-
-    stage('Compiling code') {
-      when {
-        anyOf {
-          expression { COMPONENT == "JAVA" }
-        }
-      }
-      steps {
-        echo 'Code compilation done'
-      }
-    }
 
     stage('Check Code Quality') {
       steps {
