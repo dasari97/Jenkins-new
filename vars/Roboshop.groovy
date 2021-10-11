@@ -10,6 +10,11 @@ def call (String Agent , String COMPONENT) {
   stages {
 
     stage('Compiling code') {
+      when {
+        anyOf {
+          expression { COMPONENT == "JAVA" }
+        }
+      }
       steps {
         echo 'Code compilation done'
       }
