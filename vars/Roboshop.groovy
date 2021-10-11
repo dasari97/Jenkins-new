@@ -1,9 +1,9 @@
-def call () {
+def call (String Agent) {
     pipeline {
 
   agent {
     node {
-      label 'NODEJS'
+      label 'Agent'
     }
   }
 
