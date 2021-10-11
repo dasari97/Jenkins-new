@@ -1,4 +1,4 @@
-def call (String Agent) {
+def call (String Agent , String COMPONENT) {
     pipeline {
 
   agent {
@@ -35,10 +35,10 @@ def call (String Agent) {
 
     stage('Prepare Artifact') {
       steps {
-        sh '''
+        sh """
           cd static
-          zip -r frontend.zip * 
-        '''
+          zip -r ${COMPONENT}}.zip * 
+        """
       }
     }
 
