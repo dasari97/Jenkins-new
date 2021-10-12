@@ -38,6 +38,7 @@ def call (String COMPONENT) {
     }
 
     stage('Preparing Artifact') {
+      when{ buildingTag()}
       steps {
         sh """
           cd static
@@ -47,6 +48,7 @@ def call (String COMPONENT) {
     }
 
     stage('Publishing Artifacts') {
+      when{ buildingTag()}
       steps {
         echo 'Publish Artifacts'
       }
