@@ -3,16 +3,16 @@ def call (String COMPONENT) {
 
   agent {
     node {
-      label "NODEJS"
+      label "JAVA"
     }
   }
   environment {
       Sonar_Token = credentials('Sonar_Token')
   }
   stages {
-    stage('CSubmitting for code Compilation') {
+    stage('Submitting for code Compilation') {
         steps {
-            sh 'mvn target/.'
+            sh 'mvn compile'
         }
     }
 
