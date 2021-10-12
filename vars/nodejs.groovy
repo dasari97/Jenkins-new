@@ -10,7 +10,7 @@ def call (String COMPONENT) {
       Sonar_Token = credentials('Sonar_Token')
   }
   
-  triggers { pollSCM('H/5 * * * 1-5') }
+  triggers { pollSCM('H/10 * * * 1-5') }
   
   stages {
 
@@ -37,7 +37,6 @@ def call (String COMPONENT) {
     stage('Unit Tests') {
       steps {
         echo 'Unit tests'
-        sh 'env'
       }
     }
 
