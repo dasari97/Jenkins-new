@@ -17,9 +17,13 @@ pipelineJob("CI-Pipelines/${j}") {
         'userRemoteConfigs' {
           'hudson.plugins.git.UserRemoteConfig' {
             'url'("https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/${j}")
+            'refspec'('\'+refs/tags/*\':\'refs/remotes/origin/tags/*\'')
           }
         }
         'branches' {
+          'hudson.plugins.git.BranchSpec' {
+              'name'('*/tags/*')
+            }
           'hudson.plugins.git.BranchSpec' {
             'name'('*/main')
           }
