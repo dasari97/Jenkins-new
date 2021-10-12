@@ -19,7 +19,7 @@ def call (String COMPONENT) {
     
     stage('Code Quality result'){
         steps {
-            sh "sonar-qulaity-gate.sh admin admin123 3.94.119.157 ${COMPONENT}"
+            sh "/usr/bin/sonar-quality-gate.sh admin admin123 3.94.119.157 ${COMPONENT}"
         }
     }
 
