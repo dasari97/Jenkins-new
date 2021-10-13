@@ -37,7 +37,10 @@ def call (String COMPONENT) {
     stage('Unit Tests') {
       steps {
         echo 'Unit tests'
-        sh 'env'
+        sh """
+        VERSION=`echo ${GIT_BRANCH} | awk -F / '{print \$NF}"`
+        echo version = \$VERSION
+        """
       }
     }
 
