@@ -8,6 +8,7 @@ def call (String COMPONENT) {
   }
   environment {
       Sonar_Token = credentials('Sonar_Token')
+      NEXUS = credentials('NEXUS')
   }
   
    triggers { pollSCM('H/10 * * * 1-5') }
@@ -60,7 +61,10 @@ def call (String COMPONENT) {
     stage('Publishing Artifacts') {
        when{ expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true'])}}
       steps {
-        echo 'Publish Artifacts'
+        sh """ 
+        VERSION=`echo ${GIT_BRANCH} | awk -F / '{print \$NF}'`
+        curl -v -u ${NEXUS} --upload-file ${COMPONENT}-\${VERSION}.zip http://172.31.4.112:8081/repository/${COMPONENT}/${COMPONENT}-\${VERSION}.zip 
+        """
       }
     }
 
