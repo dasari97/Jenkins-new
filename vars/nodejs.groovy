@@ -37,6 +37,7 @@ def call (String COMPONENT) {
     stage('Unit Tests') {
       steps {
         echo 'Unit tests'
+        sh 'env'
       }
     }
 
