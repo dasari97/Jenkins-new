@@ -44,8 +44,8 @@ def call (String COMPONENT) {
        when{ expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true'])}}
       steps {
         sh """
-          cd static
-          zip -r ${COMPONENT}.zip * 
+          VERSION=`echo ${GIT_BRANCH} | awk -F / '{print \$NF}'`
+          zip -r ${COMPONENT}-\${VERSION}.zip *.py *.ini requirements.txt
         """
       }
     }
