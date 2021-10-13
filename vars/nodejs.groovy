@@ -38,7 +38,7 @@ def call (String COMPONENT) {
       steps {
         echo 'Unit tests'
         sh """
-        VERSION=`echo ${GIT_BRANCH} | awk -F / '{print \$NF}"`
+        VERSION=`echo ${GIT_BRANCH} | awk -F / '{print \$NF}'`
         echo version = \$VERSION
         """
       }
