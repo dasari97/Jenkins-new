@@ -42,7 +42,7 @@ folder('Mutable-Infra') {
 }
 
 
-pipelineJob("Mutable/VPC") {
+pipelineJob("Mutable-Infra/VPC") {
   configure { flowdefinition ->
     flowdefinition << delegate.'definition'(class:'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition',plugin:'workflow-cps') {
       'scm'(class:'hudson.plugins.git.GitSCM',plugin:'git') {
