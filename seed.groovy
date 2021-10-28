@@ -59,7 +59,7 @@ pipelineJob("Mutable-Infra/VPC") {
           }
         }
       }
-      'scriptPath'('VPC/Jenkinsfile')
+      'scriptPath'('VPC/jenkinsfile')
       'lightweight'(true)
     }
   }
@@ -88,7 +88,7 @@ pipelineJob("Mutable-Infra/DB") {
           }
         }
       }
-      'scriptPath'('Databases/Jenkinsfile')
+      'scriptPath'('Databases/jenkinsfile')
       'lightweight'(true)
     }
   }
