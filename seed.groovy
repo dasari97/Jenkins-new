@@ -67,7 +67,7 @@ pipelineJob("Mutable/VPC") {
   }
  }
  
- folder('Mutable') {
+ folder('Mutable-Infra') {
   displayName('Mutable-Infra')
   description('Mutable-Infra')
 }
