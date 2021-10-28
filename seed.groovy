@@ -93,7 +93,7 @@ pipelineJob("MI-Terraform/DB") {
           }
         }
       }
-      'scriptPath'('databases/Jenkinsfile')
+      'scriptPath'('databases/jenkinsfile')
       'lightweight'(true)
     }
   }
