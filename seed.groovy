@@ -180,8 +180,13 @@ pipelineJob("MI/${j}") {
             'refspec'('\'+refs/tags/*\':\'refs/remotes/origin/tags/*\'')
           }
         }
-        
-         
+        'branches' {
+          'hudson.plugins.git.BranchSpec' {
+              'name'('*/tags/*')
+            }
+          'hudson.plugins.git.BranchSpec' {
+            'name'('*/main')
+          }
         }
       }
       'scriptPath'('VPC/jenkinsfile')
@@ -189,3 +194,4 @@ pipelineJob("MI/${j}") {
     }
   }
  }
+}
