@@ -41,7 +41,7 @@ folder('M') {
   description('M')
 }
 
- pipelineJob("M/Destroy") {
+ pipelineJob("M/VPC") {
   configure { flowdefinition ->
     flowdefinition << delegate.'definition'(class:'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition',plugin:'workflow-cps') {
       'scm'(class:'hudson.plugins.git.GitSCM',plugin:'git') {
@@ -57,7 +57,7 @@ folder('M') {
           }
         }
       }
-      'scriptPath'('Jenkinsfile-destroy')
+      'scriptPath'('VPC/jenkinsfile')
       'lightweight'(true)
     }
   }
