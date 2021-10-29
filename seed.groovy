@@ -158,4 +158,40 @@ pipelineJob("Application_MI/${j}") {
  }
 }
 
-//
+folder('MI') {
+  displayName('MI')
+  description('MI')
+}
+
+def components = ["Databases", "VPC"]
+
+def counts = (components.size() -1)
+
+for(int i in 0..counts) {
+
+def j=component[i]
+pipelineJob("MI/${j}") {
+  configure { flowdefinition ->
+    flowdefinition << delegate.'definition'(class:'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition',plugin:'workflow-cps') {
+      'scm'(class:'hudson.plugins.git.GitSCM',plugin:'git') {
+        'userRemoteConfigs' {
+          'hudson.plugins.git.UserRemoteConfig' {
+            'url'("https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/terraform-mutable")
+            'refspec'('\'+refs/tags/*\':\'refs/remotes/origin/tags/*\'')
+          }
+        }
+        'branches' {
+          'hudson.plugins.git.BranchSpec' {
+              'name'('*/tags/*')
+            }
+          'hudson.plugins.git.BranchSpec' {
+            'name'('*/main')
+          }
+        }
+      }
+      'scriptPath'('${j}/jenkinsfile')
+      'lightweight'(true)
+    }
+  }
+ }
+}
