@@ -189,4 +189,3 @@ pipelineJob("MI/${j}") {
     }
   }
  }
-}
