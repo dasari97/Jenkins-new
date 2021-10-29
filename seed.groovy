@@ -36,11 +36,38 @@ pipelineJob("CI-Pipelines/${j}") {
  }
 }
 
-folder('MI') {
+folder('M') {
+  displayName('M')
+  description('M')
+}
+
+ pipelineJob("M/Destroy") {
+  configure { flowdefinition ->
+    flowdefinition << delegate.'definition'(class:'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition',plugin:'workflow-cps') {
+      'scm'(class:'hudson.plugins.git.GitSCM',plugin:'git') {
+        'userRemoteConfigs' {
+          'hudson.plugins.git.UserRemoteConfig' {
+            'url'("https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/terraform-mutable")
+            'refspec'('\'+refs/tags/*\':\'refs/remotes/origin/tags/*\'')
+          }
+        }
+        'branches' {
+          'hudson.plugins.git.BranchSpec' {
+            'name'('*/main')
+          }
+        }
+      }
+      'scriptPath'('Jenkinsfile-destroy')
+      'lightweight'(true)
+    }
+  }
+ }
+ 
+ folder('MI') {
   displayName('MI')
   description('MI')
 }
-
+ 
  pipelineJob("MI/Destroy") {
   configure { flowdefinition ->
     flowdefinition << delegate.'definition'(class:'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition',plugin:'workflow-cps') {
