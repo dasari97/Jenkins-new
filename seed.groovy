@@ -37,12 +37,12 @@ pipelineJob("CI-Pipelines/${j}") {
 }
 
  
- folder('MI') {
-  displayName('MI')
-  description('MI')
+ folder('Mutable-Infra') {
+  displayName('Mutable-Infra')
+  description('Mutable-Infra')
 }
  
- pipelineJob("MI/Destroy") {
+ pipelineJob("Mutable-Infra/Destroy") {
   configure { flowdefinition ->
     flowdefinition << delegate.'definition'(class:'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition',plugin:'workflow-cps') {
       'scm'(class:'hudson.plugins.git.GitSCM',plugin:'git') {
