@@ -36,32 +36,6 @@ pipelineJob("CI-Pipelines/${j}") {
  }
 }
 
-folder('M') {
-  displayName('M')
-  description('M')
-}
-
- pipelineJob("M/VPC") {
-  configure { flowdefinition ->
-    flowdefinition << delegate.'definition'(class:'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition',plugin:'workflow-cps') {
-      'scm'(class:'hudson.plugins.git.GitSCM',plugin:'git') {
-        'userRemoteConfigs' {
-          'hudson.plugins.git.UserRemoteConfig' {
-            'url'("https://dasarisaikrishna97@dev.azure.com/dasarisaikrishna97/Roboshop/_git/terraform-mutable")
-            'refspec'('\'+refs/tags/*\':\'refs/remotes/origin/tags/*\'')
-          }
-        }
-        'branches' {
-          'hudson.plugins.git.BranchSpec' {
-            'name'('*/main')
-          }
-        }
-      }
-      'scriptPath'('VPC/jenkinsfile')
-      'lightweight'(true)
-    }
-  }
- }
  
  folder('MI') {
   displayName('MI')
