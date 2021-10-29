@@ -189,7 +189,7 @@ pipelineJob("MI/${j}") {
           }
         }
       }
-      'scriptPath'("${j}/jenkinsfile")
+      'scriptPath'('VPC/jenkinsfile')
       'lightweight'(true)
     }
   }
