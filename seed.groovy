@@ -169,7 +169,7 @@ def counts = (components.size() -1)
 
 for(int i in 0..counts) {
 
-def j=component[i]
+def j=components[i]
 pipelineJob("MI/${j}") {
   configure { flowdefinition ->
     flowdefinition << delegate.'definition'(class:'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition',plugin:'workflow-cps') {
