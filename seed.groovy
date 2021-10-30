@@ -81,7 +81,7 @@ folder('ABC') {
 
 def Infra = ["VPC", "Databases"]
 
-def count2 = (infra.size() -1)
+def count2 = (Infra.size() -1)
 
 for(int b in 0..count2) {
 
