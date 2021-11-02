@@ -7,7 +7,7 @@ def call (String COMPONENT) {
     }
   }
   environment {
-      Sonar_Token = credentials('Sonar_Token')
+      //Sonar_Token = credentials('Sonar_Token')
       NEXUS = credentials('NEXUS')
   }
   
