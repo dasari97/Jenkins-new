@@ -6,10 +6,10 @@ def call (String COMPONENT) {
       label "NODEJS"
     }
   }
-  environment {
+ // environment {
       //Sonar_Token = credentials('Sonar_Token')
-      NEXUS = credentials('NEXUS')
-  }
+      //NEXUS = credentials('NEXUS')
+  //}
   
   triggers { pollSCM('H/1 * * * 1-5') }
   
