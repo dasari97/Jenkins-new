@@ -61,7 +61,7 @@ def call (String COMPONENT) {
       steps {
         sh """ 
         VERSION=`echo ${GIT_BRANCH} | awk -F / '{print \$NF}'`
-        curl -f -v -u ${NEXUS} --upload-file ${COMPONENT}-\${VERSION}.zip http://172.31.4.112:8081/repository/${COMPONENT}/${COMPONENT}-\${VERSION}.zip 
+        curl -f -v -u ${NEXUS} --upload-file ${COMPONENT}-\${VERSION}.zip http://172.31.87.47:8081/repository/${COMPONENT}/${COMPONENT}-\${VERSION}.zip 
         """
       }
     }
