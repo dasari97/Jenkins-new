@@ -57,12 +57,12 @@ def call (String COMPONENT) {
       steps {
         sh """ 
         VERSION=`echo ${GIT_BRANCH} | awk -F / '{print \$NF}'`
-        curl -f -v -u ${NEXUS} --upload-file ${COMPONENT}-\${VERSION}.zip http://172.31.87.47:8081/repository/${COMPONENT}/${COMPONENT}-\${VERSION}.zip 
+        curl -f -v -u ${NEXUS} --upload-file ${COMPONENT}-\${VERSION}.zip http://172.31.11.102:8081/repository/${COMPONENT}/${COMPONENT}-\${VERSION}.zip 
         """
       }
     }
     
-    stage('Dev Deployment') {
+    /*stage('Dev Deployment') {
         when { expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true' ]) } }
         steps {
           script {
@@ -70,7 +70,7 @@ def call (String COMPONENT) {
             build job: 'AppDeploy', parameters: [string(name: 'COMPONENT', value: "${COMPONENT}"), string(name: 'ENV', value: 'dev'), string(name: 'APP_VERSION', value: VERSION)]
           }
         }
-      } 
+      }*/ 
 
   }
 
