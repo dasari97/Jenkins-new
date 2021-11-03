@@ -46,22 +46,22 @@ def call (String COMPONENT) {
     }
 
     stage('Preparing Artifact') {
-      //when{ expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true'])}}
+      when{ expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true'])}}
       steps {
         sh """
           npm install
           VERSION=`echo ${GIT_BRANCH} | awk -F / '{print \$NF}'`
-          zip -r ${COMPONENT}-1.0.3.zip node_modules server.js
+          zip -r ${COMPONENT}-\${VERSION}.zip.zip node_modules server.js
         """
       }
     }
 
     stage('Publishing Artifacts') {
-      //when{ expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true'])}} 
+      when{ expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true'])}} 
       steps {
         sh """ 
         VERSION=`echo ${GIT_BRANCH} | awk -F / '{print \$NF}'`
-        curl -f -v -u ${NEXUS} --upload-file ${COMPONENT}-1.0.3.zip http://172.31.11.102:8081/repository/${COMPONENT}/${COMPONENT}-1.0.3.zip
+        curl -f -v -u ${NEXUS} --upload-file ${COMPONENT}-\${VERSION}.zip.zip http://172.31.11.102:8081/repository/${COMPONENT}/${COMPONENT}-\${VERSION}.zip.zip
         """
       }
     }
