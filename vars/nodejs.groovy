@@ -46,12 +46,12 @@ def call (String COMPONENT) {
     }
 
     stage('Preparing Artifact') {
-      when{ expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true'])}}
+      //when{ expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true'])}}
       steps {
         sh """
           npm install
           VERSION=`echo ${GIT_BRANCH} | awk -F / '{print \$NF}'`
-          zip -r ${COMPONENT}-\${VERSION}.zip node_modules server.js
+          zip -r ${COMPONENT}-1.0.3 node_modules server.js
         """
       }
     }
