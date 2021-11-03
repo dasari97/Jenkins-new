@@ -11,7 +11,7 @@ def call (String COMPONENT) {
       NEXUS = credentials('NEXUS')
   }
   
-   triggers { pollSCM('H/10 * * * 1-5') }
+  // triggers { pollSCM('H/10 * * * 1-5') }
   
   stages {
 
