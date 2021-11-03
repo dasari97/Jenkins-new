@@ -57,11 +57,11 @@ def call (String COMPONENT) {
     }
 
     stage('Publishing Artifacts') {
-      //when{ expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true'])}} 
+      when{ expression { sh([returnStdout: true, script: 'echo ${GIT_BRANCH} | grep tags || true'])}} 
       steps {
         sh """ 
         VERSION=`echo ${GIT_BRANCH} | awk -F / '{print \$NF}'`
-        curl -f -v -u ${NEXUS} --upload-file ${COMPONENT}-1.0.3 http://172.31.11.102:8081/repository/${COMPONENT}/${COMPONENT}-1.0.3 
+        curl -f -v -u ${NEXUS} --upload-file ${COMPONENT}-\${VERSION}.zip http://172.31.11.102:8081/repository/${COMPONENT}/${COMPONENT}-\${VERSION}.zip 
         """
       }
     }
